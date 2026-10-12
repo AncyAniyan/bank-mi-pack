@@ -1,0 +1,9 @@
+-- 02_load.psql : run with psql from Terminal (\copy does not work in pgAdmin/DBeaver).
+\copy stg.account         FROM '/Users/ancyrahul/data/berka/account.asc'  WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.client          FROM '/Users/ancyrahul/data/berka/client.asc'   WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.disp            FROM '/Users/ancyrahul/data/berka/disp.asc'     WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.permanent_order FROM '/Users/ancyrahul/data/berka/order.asc'    WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.trans           FROM '/Users/ancyrahul/data/berka/trans.asc'    WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.loan            FROM '/Users/ancyrahul/data/berka/loan.asc'     WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.card            FROM '/Users/ancyrahul/data/berka/card.asc'     WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
+\copy stg.district        FROM '/Users/ancyrahul/data/berka/district.asc' WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"')
