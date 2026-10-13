@@ -1,0 +1,25 @@
+| ID | Date | Decision | Options considered | Reason | Decided by | Impact |
+|---|---|---|---|---|---|---|
+| DEC-001 | 2026-10-13 | Treat trans.type = 'VYBER' as withdrawal (money out) | (a) Drop rows, (b) Keep as unknown, (c) Treat as withdrawal | In Czech, VYBER means cash withdrawal; dropping 16,666 rows breaks account balance reconciliation | Data Analyst (approved with Data Owner) | Mapped to withdrawal in core.trans |
+
+## BMI-3 Client Spot Check (20 rows) — verified ✅
+1198	755217	F	1975-02-17
+2043	545915	F	1954-09-15
+3722	565429	F	1956-04-29
+11851	700402	M	1970-04-02
+3560	440202	M	1944-02-02
+4407	750706	M	1975-07-06
+3311	540825	M	1954-08-25
+4061	781224	M	1978-12-24
+4103	650519	M	1965-05-19
+1751	590124	M	1959-01-24
+1942	150510	M	1915-05-10
+11359	720820	M	1972-08-20
+4440	481226	M	1948-12-26
+11381	795726	F	1979-07-26
+3933	465907	F	1946-09-07
+1789	335807	F	1933-08-07
+10476	501204	M	1950-12-04
+325	600221	M	1960-02-21
+9834	605317	F	1960-03-17
+4195	450730	M	1945-07-30
