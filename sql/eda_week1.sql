@@ -59,3 +59,13 @@ select round(avg(la.balance),2) as average_balance,dis.region from latest_trans 
 -- west Bohemia: 43,636.90 CZK
 -- east Bohemia: 43,494.20 CZK
 -- south Bohemia: 41,841.10 CZK (lowest average account balance)
+
+---Task: Find the number of accounts that have no transactions at all.
+----Tables: core.account and core.transaction
+select count(a.account_id )as n_accounts from  core.account a left join core."transaction" t on t.account_id =a.account_id where t.account_id is null ;
+
+---Task: For every account, find:account_id first_date (earliest transaction date) last_date (latest transaction date) n_transactions (number of transactions) days_between (the number of days between first and last date)
+select account_id,min(trans_date) as first_date,max(trans_date) as last_date,count(trans_id) as n_transactions,(max(trans_date)-min(trans_date)) as days_between from core."transaction" t group by account_id
+
+---Task:
+
