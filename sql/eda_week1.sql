@@ -67,5 +67,11 @@ select count(a.account_id )as n_accounts from  core.account a left join core."tr
 ---Task: For every account, find:account_id first_date (earliest transaction date) last_date (latest transaction date) n_transactions (number of transactions) days_between (the number of days between first and last date)
 select account_id,min(trans_date) as first_date,max(trans_date) as last_date,count(trans_id) as n_transactions,(max(trans_date)-min(trans_date)) as days_between from core."transaction" t group by account_id
 
----Task:
+---Task:For every month, calculate the total transaction amount and compare it to the previous month.
+with monthly as(
+
+select date_trunc('month', trans_date)::date as month,sum(amount)as total_value from core."transaction" group by month
+)
+select month,total_value,total_value-LAG(total_value) OVER (ORDER BY month) as change_abs,ROUND(100.0 * (total_value - LAG(total_value) OVER (ORDER BY month)) / LAG(total_value) OVER (ORDER BY month), 1) AS change_pct  from monthly order by month;
+
 
