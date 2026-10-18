@@ -1,0 +1,1 @@
+ - 2026-10-15: Shipped BMI-4 balance reconciliation across 1M transactions with automated check N04 PASS
