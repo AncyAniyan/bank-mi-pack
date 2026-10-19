@@ -1,9 +1,9 @@
 # Retail Banking MI Pack & Loan Portfolio Risk Review
 **A governed, reconciled management information pack and Power BI analytics platform built on 1.05M transactions, identifying loan default drivers and credit card cross-sell opportunities for retail banking executives.**
 
-[BRD (v0.9)](docs/BRD.md) · [EDA Notes](docs/eda_notes.md) · [Defect Log](docs/defect_log.md) · [Decision Log](docs/decision_log.md)
+[BRD (v0.9)](docs/BRD.md) · [EDA Notes](docs/eda_notes.md) · [Data Dictionary](docs/data_dictionary.md) · [DQ Report](docs/dq_report.md) · [Defect Log](docs/defect_log.md) · [Decision Log](docs/decision_log.md)
 
-**Status:** In Progress (Week 1 completed: Staging, Reference, Core schemas, BRD, and EDA)
+**Status:** In Progress (Week 2: Star Schema Marts built & verified)
 
 ---
 
@@ -11,8 +11,9 @@
 Retail Banking leadership previously operated on manually assembled monthly Excel packs prone to reconciliation discrepancies between Finance and Retail. Figures frequently broke down during executive reviews, delaying strategic actions. Furthermore, Credit Risk lacked early-warning signals to identify pre-default behaviour, and branches lacked a governed targeting list for card cross-selling.
 
 ## What I Delivered
-- **Reproducible Data Pipeline:** Automated PostgreSQL architecture (`stg` raw staging, `ref` translation mappings, and typed `core` entities) covering 8 tables and 1,056,320 transactions.
-- **Data Governance & Auditability:** Formal Defect Log (`DEF-001`), Decision Log (`DEC-001`), and comprehensive Business Requirements Document ([BRD v0.9](docs/BRD.md)) tracing 10 functional requirements (FR-01 to FR-10).
+- **Reproducible Data Pipeline:** Automated PostgreSQL architecture (`stg` raw staging, `ref` translation mappings, typed `core` entities, and dimensional `mart` star schema) covering 8 tables and 1,056,320 transactions.
+- **Dimensional Marts for Power BI:** 3 dimension tables (`dim_date`, `dim_district`, `dim_account`) and 3 fact tables (`fact_transaction`, `fact_loan`, `fact_account_month`) verified with 100% referential integrity and row count checks.
+- **Data Governance & Auditability:** Formal Defect Log (`DEF-001`), Decision Log (`DEC-001`), Data Quality Report, and comprehensive Business Requirements Document ([BRD v0.9](docs/BRD.md)) tracing 10 functional requirements (FR-01 to FR-10).
 - **Exploratory Data Analysis (EDA):** Complete baseline SQL suite (`sql/eda_week1.sql`) and executive briefing notes (`docs/eda_notes.md`) establishing transaction velocity, regional liquidity, and credit risk baselines.
 
 ## Key Findings
@@ -32,7 +33,7 @@ flowchart LR
     D --> F[(dq: checks and reconciliation)]
     E --> G[Power BI Report]
     F --> G
-```
+    ```
 
 ## Data Model
 ```mermaid
