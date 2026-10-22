@@ -35,3 +35,23 @@
 - **First Cloud Refresh:** 2026-10-21 16:00:05 (Completed in 14 seconds)
 - **Scheduled Refresh:** Configured twice daily (07:00 and 13:00 GST)
 - **Proof:** Screenshot stored at `images/cloud_refresh_history.png`
+
+## KPI Measures Validation (Day 15 — BMI-5)
+
+**Objective:** Validate that Power BI KPI measures (`Loans`, `Defaulted Loans`, `Default Rate`) match database SQL queries across `mart.fact_loan`.
+
+### 1. SQL Query Used
+```sql
+SELECT COUNT(*) AS loans,
+       COUNT(*) FILTER (WHERE is_default) AS defaulted,
+       ROUND(100.0 * COUNT(*) FILTER (WHERE is_default) / COUNT(*), 1) AS default_rate_pct
+FROM mart.fact_loan;
+```
+
+### 2. Reconciliation Matrix
+| Metric | Power BI Unfiltered Visual | SQL Ground Truth | Variance | Self-Check (N06) |
+|---|---|---|---|:---:|
+| `Loans` | 682 | 682 | 0 | ✅ PASS |
+| `Defaulted Loans` | 76 | 76 | 0 | ✅ PASS |
+| `Default Rate` | 11.1% | 11.1% | 0.0% | ✅ PASS |
+
