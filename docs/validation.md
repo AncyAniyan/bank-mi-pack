@@ -55,3 +55,23 @@ FROM mart.fact_loan;
 | `Defaulted Loans` | 76 | 76 | 0 | ✅ PASS |
 | `Default Rate` | 11.1% | 11.1% | 0.0% | ✅ PASS |
 
+
+### 3. Time Intelligence MoM % Validation (N11)
+| Month | Power BI MoM % | SQL / S06 Baseline | Variance | Self-Check (N11) |
+|---|---|---|---|:---:|
+| `1997-03` | 14.9% | 14.89% | 0.0% | ✅ PASS |
+| `1998-12` | 15.4% | 15.36% | 0.0% | ✅ PASS |
+
+
+### 4. Customer Cards Validation (N08)
+| Metric | Power BI Value | Baseline / Target | Match | Self-Check (N08) |
+|---|---|---|:---:|:---:|
+| `Accounts with Card` | 892 | 892 | ✅ | ✅ PASS |
+| `Card Penetration` | 19.8% | 19.8% | ✅ | ✅ PASS |
+
+### 5. Period-End Balance Validation — 1998 (N09)
+| Metric | Power BI Value (1998) | Baseline / Target | Match | Self-Check (N09) |
+|---|---|---|:---:|:---:|
+| `Avg Period-End Balance` | 43,809 | 43,809 | ✅ | ✅ PASS |
+| `Total Period-End Balance` | 197,140,234 | 197,140,234 | ✅ | ✅ PASS |
+
