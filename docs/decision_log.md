@@ -27,3 +27,5 @@
 325	600221	M	1960-02-21
 9834	605317	F	1960-03-17
 4195	450730	M	1945-07-30
+| DEC-006 | 2026-10-27 | Reject real-time ML credit score prediction (#16) | (a) Build ML model, (b) Reject as out-of-scope | Berka dataset is a historical batch relational database (1993–1998); production requirement is retrospective portfolio MI and risk analysis, not a real-time live applicant scoring API | Data Analyst (Stakeholder feedback review) | Issue #16 closed as rejected |
+| DEC-007 | 2026-10-27 | Defer 3rd-party credit bureau integration (#17) | (a) Ingest mockup bureau data, (b) Defer to future roadmap | External credit bureau feeds (e.g. AECB/Experian) are outside current internal banking project scope; deferred to future data warehouse integration backlog | Data Analyst (Stakeholder feedback review) | Issue #17 deferred to backlog |

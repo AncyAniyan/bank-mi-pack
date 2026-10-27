@@ -1,1 +1,6 @@
  - 2026-10-15: Shipped BMI-4 balance reconciliation across 1M transactions with automated check N04 PASS
+- 2026-10-27: Shipped Dashboard v1 with Executive, Activity, Credit Risk, and Data Quality pages (PDF in presentation/bank_mi_pack_v1.pdf)
+- 2026-10-27: Shipped v1.1 implementing accepted stakeholder feedback:
+  - #13: Added district search slicer on Executive summary page
+  - #14: Added business definition subtitles to Executive KPI cards (Cumulative volume & active accounts)
+  - #15: Reordered report tabs to place Executive one-pager first
