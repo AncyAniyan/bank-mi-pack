@@ -4,3 +4,4 @@
   - #13: Added district search slicer on Executive summary page
   - #14: Added business definition subtitles to Executive KPI cards (Cumulative volume & active accounts)
   - #15: Reordered report tabs to place Executive one-pager first
+- 2026-10-28: Shipped BMI-7 credit card cross-sell priority list: 1,460 qualified target accounts in mart.cross_sell_list, CSV export, Power BI Cross-sell page, 10% holdout control group measurement design in BRD, self-check N10 PASS

@@ -69,6 +69,16 @@ Retail Banking leadership currently relies on a manually assembled monthly Excel
 | FR-10 | Deliver executive dashboard with formal UAT test execution and stakeholder sign-off | BMI-10 |
 | FR-14 | Implement automated data-quality rule suite (≥ 14 checks) with defect logging | BMI-14 |
 
+
+### 7.1 Card Cross-Sell Campaign Measurement & Control Group Design (BMI-7)
+To evaluate the true causal uplift of the branch outreach campaign rather than attributing natural organic conversion to the sales team, Retail Banking will execute an A/B holdout test structure:
+- **Target Population:** The 1,460 qualified accounts identified in `mart.cross_sell_list` (active in the last 3 months, no existing credit card, average end balance at or above the active median, and zero defaulted loans).
+- **Control Group (10% Holdout):** A randomly selected 10% sample (~146 accounts) will be flagged and excluded from all branch relationship manager outreach, direct mail, and marketing calls.
+- **Treatment Group (90% Outreach):** The remaining 90% (~1,314 accounts) will receive proactive branch relationship manager outreach.
+- **Effectiveness Measurement:** At the end of the 90-day campaign window, credit card adoption rates between the two cohorts will be evaluated:
+  $$\\text{Incremental Uplift} = \\text{Take-up Rate}_{\\text{treatment}} - \\text{Take-up Rate}_{\\text{control}}$$
+Only positive incremental uplift demonstrates marketing ROI and justifies expanding the cross-sell initiative to other product lines.
+
 ## 8. Non-functional requirements
 - **Reproducibility:** Entire ETL pipeline in PostgreSQL and Power Query must run end-to-end without manual data edits.
 - **Performance:** Power BI visuals must load in under 3 seconds using VertiPaq in-memory storage.

@@ -75,3 +75,20 @@ FROM mart.fact_loan;
 | `Avg Period-End Balance` | 43,809 | 43,809 | ✅ | ✅ PASS |
 | `Total Period-End Balance` | 197,140,234 | 197,140,234 | ✅ | ✅ PASS |
 
+
+## Card Cross-Sell List Validation (Day 21 — BMI-7)
+
+**Objective:** Validate that the target accounts on the card cross-sell list match the physical CSV export, database ground truth, and the Power BI Cross-sell visual exactly.
+
+### 1. Row Count & Target Reconciliation
+| Source / Artifact | Measure / Row Count | Variance vs Target | Match | Self-Check (N10) |
+|---|---|---|:---:|:---:|
+| **SQL Mart Ground Truth** (`mart.cross_sell_list`) | 1,460 accounts | 0 | ✅ | ✅ PASS |
+| **Physical CSV Export** (`cross_sell_list.csv`) | 1,460 rows (1,461 lines − 1 header) | 0 | ✅ | ✅ PASS |
+| **Power BI Visual** (`[Target Accounts]` card) | 1,460 accounts | 0 | ✅ | ✅ PASS |
+
+### 2. Campaign Definition Criteria
+- Active in the last 3 months of data (`txn_last3 > 0`)
+- No existing credit card (`NOT has_card`)
+- Average period-end balance at or above the 3-month active median (`avg_end_balance_last3 >= median_balance`)
+- No defaulted loan (`NOT is_default`)
